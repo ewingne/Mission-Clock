@@ -1,6 +1,12 @@
 *.py
-*.ca
+*.cs
 *.ps1
+*.spec
+
+# Folders
+resources/
+build/
+.git/
 
 # Environments
 .venv
