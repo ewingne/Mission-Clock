@@ -72,6 +72,7 @@ class MissionClock:
         self.root = root
         self.root.overrideredirect(True)  # Remove title bar
         self.root.attributes('-topmost', False)  # Keep window on top
+        self.root.attributes('-alpha', 0.99) # turn the window just a bit transparent to allow the screensave/lock to take affect.
         # self.root.title("Multi-Timezone Clock")
         
         # Get screen dimensions
