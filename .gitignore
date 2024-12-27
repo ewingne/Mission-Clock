@@ -1,0 +1,7 @@
+*.py
+*.ca
+*.ps1
+
+# Environments
+.venv
+.venv/
