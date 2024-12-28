@@ -1,3 +1,5 @@
+![alt text](https://github.com/ewingne/Clock/blob/main/Images/MsnClock.ico "Mission Clock")
+
 Mission Clock<br/>
 Version 1.4<br/>
 <br/>
@@ -12,5 +14,3 @@ Hard coded locations<br/>
  - Berlin, 1
  - Tokyo, 9
  - Sydney, 10
-
-![alt text](https://github.com/ewingne/Clock/blob/main/Images/MsnClock.ico "Mission Clock")
