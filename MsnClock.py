@@ -1,5 +1,5 @@
 # Mission Clock
-# Version 1.5
+# Version 1.4
 
 
 import tkinter as tk
@@ -82,11 +82,11 @@ class MissionClock:
         self.root.attributes('-topmost', False)  # Keep window on top
         self.root.attributes('-alpha', 0.99) # turn the window just a bit transparent to allow the screensave/lock to take affect.
 
-        self.is_on_top = tk.BooleanVar(value=False)
-        # Get screen dimensions
-        screen_width = root.winfo_screenwidth()
+        self.is_on_top = tk.BooleanVar(value=False) # Variable to track if the application is always on top or not
+        
+        screen_width = root.winfo_screenwidth() # Get screen width dimensions for centering application
 
-        self.timezones = [
+        self.timezones = [ # Beginning Timezones
             ('Honolulu', -10),
             ('San Antonio', -6),
             ('Zulu', 0),
