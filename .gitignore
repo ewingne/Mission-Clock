@@ -1,3 +1,4 @@
+.gitignore
 *.cs
 *.ps1
 *.spec
