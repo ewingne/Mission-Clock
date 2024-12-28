@@ -13,4 +13,4 @@ Hard coded locations<br/>
  - Tokyo, 9
  - Sydney, 10
 
-![alt text](https://github.com/ewingne/Clock/blob/main/Images/MsnClock.svg "Mission Clock")
+![alt text](https://github.com/ewingne/Clock/blob/main/Images/MsnClock.ico "Mission Clock")
