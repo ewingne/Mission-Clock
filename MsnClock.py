@@ -1,5 +1,5 @@
 # Mission Clock
-# Version 1.1
+# Version 1.5
 
 
 import tkinter as tk
@@ -10,26 +10,33 @@ class ConfigWindow:
     def __init__(self, parent, current_timezones, update_callback):
         self.window = tk.Toplevel(parent)
         self.window.title("Edit Timezones")
-        self.window.geometry("300x500")
+        self.window.geometry("300x450")
         self.update_callback = update_callback
         
+        # Tuple that holds the Cities and UTC offset by order of the offset.
         self.timezones = sorted(list(current_timezones), key=lambda x: x[1])
         
+        # Create a label for the input box to collect the City name
         tk.Label(self.window, text="City:").pack(pady=5)
         self.city_entry = tk.Entry(self.window)
         self.city_entry.pack(pady=5)
         
+        # Create a label for the input box to collect the UTC offset
         tk.Label(self.window, text="UTC Offset:").pack(pady=5)
         self.offset_entry = tk.Entry(self.window)
         self.offset_entry.pack(pady=5)
         
+        # A button to add an entry for a new clock based off the inputs above
         tk.Button(self.window, text="Add Clock", command=self.add_timezone).pack(pady=10)
         
+        # The list box showing the current clocks which will be generated when the save button is pressed
         self.listbox = tk.Listbox(self.window, width=40, height=10)
         self.listbox.pack(pady=10)
         
+        # Button to remove an item selected inside the above listbox
         tk.Button(self.window, text="Remove Selected", command=self.remove_timezone).pack(pady=10)
         
+        # Button to generate the clock based on the list from the above listbox
         tk.Button(self.window, text="Save Changes", command=self.save_changes).pack(pady=10)
         
         self.update_listbox()
@@ -74,11 +81,10 @@ class MissionClock:
         self.root.overrideredirect(True)  # Remove title bar
         self.root.attributes('-topmost', False)  # Keep window on top
         self.root.attributes('-alpha', 0.99) # turn the window just a bit transparent to allow the screensave/lock to take affect.
-        # self.root.title("Multi-Timezone Clock")
-        
+
+        self.is_on_top = tk.BooleanVar(value=False)
         # Get screen dimensions
         screen_width = root.winfo_screenwidth()
-        # screen_height = root.winfo_screenheight()
 
         self.timezones = [
             ('Honolulu', -10),
@@ -116,8 +122,8 @@ class MissionClock:
         self.root.bind('<B1-Motion>', self.on_drag)
 
         self.menu = tk.Menu(root, tearoff=0)
-        # self.menu.add_checkbutton(label="Always on Top", variable=self.variable, onvalue=1, offvalue=0, command=self.always_on_top)
         self.menu.add_command(label="Edit", command=self.open_config)
+        self.menu.add_checkbutton(label="Always on Top", variable=self.is_on_top, command=self.toggle_position)
         self.menu.add_command(label="Close", command=root.destroy)
 
         # Add right-click to close
@@ -147,6 +153,12 @@ class MissionClock:
         y = self.root.winfo_y()
         self.root.geometry(f'{window_width}x{window_height}+{x}+{y}')
         
+    def toggle_position(self):
+        if self.is_on_top.get():
+            self.root.attributes('-topmost', True)
+        else:
+            self.root.attributes('-topmost', False)
+    
     def update_timezones(self, new_timezones):
         self.timezones = new_timezones
         self.create_clock_widgets()
@@ -156,7 +168,6 @@ class MissionClock:
         ConfigWindow(self.root, self.timezones, self.update_timezones)        
 
     def update_time(self):
-        # utc = datetime.utcnow()
         utc = datetime.now(timezone.utc)
         for city, offset in self.timezones:
             local_time = utc + timedelta(hours=offset)
