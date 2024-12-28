@@ -3,6 +3,7 @@
 
 
 import tkinter as tk
+from tkinter import messagebox
 from datetime import datetime, timedelta, timezone
 
 class ConfigWindow:
@@ -41,7 +42,7 @@ class ConfigWindow:
 
     def add_timezone(self):
         if len(self.timezones) >= 9:
-            tk.messagebox.showwarning("Limit Reached", "Maximum of 9 clocks allowed")
+            messagebox.showwarning("Limit Reached", "Maximum of 9 clocks allowed")
             return
         
         city = self.city_entry.get().strip()
