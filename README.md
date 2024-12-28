@@ -1,5 +1,5 @@
 Mission Clock<br/>
-Version 1.0<br/>
+Version 1.4<br/>
 <br/>
 Left-click and drag to move<br/>
 Right-click closes the application<br/>
@@ -12,3 +12,5 @@ Hard coded locations<br/>
  - Berlin, 1
  - Tokyo, 9
  - Sydney, 10
+
+[logo]: https://github.com/ewingne/Clock/blob/main/MsnClock.ico "Mission Clock"
