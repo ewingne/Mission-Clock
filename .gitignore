@@ -1,6 +1,7 @@
 *.cs
 *.ps1
 *.spec
+*.ico
 
 # Folders
 resources/

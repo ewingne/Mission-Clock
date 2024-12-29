@@ -194,7 +194,7 @@ class MissionClock:
 
     def setup_tray(self):
         # Create blank 32x32 image for tray icon
-        icon_image = Image.open('resources/MsnClock_128.ico')
+        icon_image = Image.open('MsnClock_128.ico')
 
         self.tray_menu = pystray.Menu( # Create system try icon menu
             # Checks the status of "is_on_top" and toggles the position then sets the menu item to checked or not.
