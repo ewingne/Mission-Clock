@@ -1,4 +1,8 @@
+Mission Clock Icon
 ![alt text](https://github.com/ewingne/Clock/blob/main/Images/MsnClock.ico "Mission Clock")
+
+Mission Clock Preview
+![alt text](https://github.com/ewingne/Mission-Clock/blob/main/Images/MsnClock_preview.png "Mission Clock Preview")
 
 Mission Clock<br/>
 <br/>
