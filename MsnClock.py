@@ -1,10 +1,12 @@
 # Mission Clock
-# Version 1.4
+# Version 1.5
 
-
+import pystray
 import tkinter as tk
 from tkinter import messagebox
 from datetime import datetime, timedelta, timezone
+from PIL import Image
+from os import _exit
 
 class ConfigWindow:
     def __init__(self, parent, current_timezones, update_callback):
@@ -81,6 +83,7 @@ class MissionClock:
         self.root.overrideredirect(True)  # Remove title bar
         self.root.attributes('-topmost', False)  # Keep window on top
         self.root.attributes('-alpha', 0.99) # turn the window just a bit transparent to allow the screensave/lock to take affect.
+        self.setup_tray() # Setup the tray icon
 
         self.is_on_top = tk.BooleanVar(value=False) # Variable to track if the application is always on top or not
         
@@ -124,7 +127,7 @@ class MissionClock:
         self.menu = tk.Menu(root, tearoff=0)
         self.menu.add_command(label="Edit", command=self.open_config)
         self.menu.add_checkbutton(label="Always on Top", variable=self.is_on_top, command=self.toggle_position)
-        self.menu.add_command(label="Close", command=root.destroy)
+        self.menu.add_command(label="Close", command=self.quit_app)
 
         # Add right-click to close
         self.root.bind('<Button-3>', self.show_menu)
@@ -188,6 +191,26 @@ class MissionClock:
 
     def show_menu(self, event):
         self.menu.post(event.x_root, event.y_root)
+
+    def setup_tray(self):
+        # Create blank 32x32 image for tray icon
+        icon_image = Image.open('resources/MsnClock_128.ico')
+
+        self.tray_menu = pystray.Menu( # Create system try icon menu
+            # Checks the status of "is_on_top" and toggles the position then sets the menu item to checked or not.
+            pystray.MenuItem('Always on Top', lambda: (self.is_on_top.set(not self.is_on_top.get()), self.toggle_position()), checked=lambda item: self.is_on_top.get()),
+            pystray.MenuItem('Close', self.quit_app)
+        )
+
+        # Create system tray icon
+        self.tray_icon = pystray.Icon('mission_clock', icon_image, 'Mission Clock', self.tray_menu)
+
+        self.tray_icon.run_detached() # start tray icon in separate thread
+
+    def quit_app(self):
+        _exit(0)
+        self.tray_icon.stop()
+        self.root.destroy()
 
 if __name__ == "__main__":
     root = tk.Tk()
