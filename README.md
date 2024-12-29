@@ -1,7 +1,6 @@
 ![alt text](https://github.com/ewingne/Clock/blob/main/Images/MsnClock.ico "Mission Clock")
 
 Mission Clock<br/>
-Version 1.4<br/>
 <br/>
 Left-click and drag to move<br/>
 Right-click opens the menu<br/>
@@ -17,3 +16,5 @@ Location, Difference from UTC<br/>
 * Berlin, 1 <br/>
 * Tokyo, 9 <br/>
 * Sydney, 10
+<br/>
+System tray icon will close the application and toggle "Always on Top"
