@@ -1,9 +1,9 @@
-Mission Clock Icon
+Mission Clock Icon<br/>
 ![alt text](https://github.com/ewingne/Clock/blob/main/Images/MsnClock.ico "Mission Clock")
-
-Mission Clock Preview
+<br/>
+Mission Clock Preview<br/>
 ![alt text](https://github.com/ewingne/Mission-Clock/blob/main/Images/MsnClock_preview.png "Mission Clock Preview")
-
+<br/>
 Mission Clock<br/>
 <br/>
 Left-click and drag to move<br/>
