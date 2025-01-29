@@ -1,0 +1,26 @@
+[
+    {
+        "city": "Honolulu",
+        "offset": -10
+    },
+    {
+        "city": "San Antonio",
+        "offset": -6
+    },
+    {
+        "city": "Zulu",
+        "offset": 0
+    },
+    {
+        "city": "Berlin",
+        "offset": 1
+    },
+    {
+        "city": "Tokyo",
+        "offset": 9
+    },
+    {
+        "city": "Sydney",
+        "offset": 10
+    }
+]
