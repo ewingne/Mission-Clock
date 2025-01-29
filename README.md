@@ -13,8 +13,9 @@ Right-click opens the menu<br/>
 - "Reposition Window" moves the clock to the top center again
 - "Close" closes the application
 <br/>
-Locations are now persistant with a "clocks.json" file used to "save" any changes. 
-Hard coded locations to open the application<br/>
+Locations are now persistant with a "clocks.json" file used to "save" any changes. <br/>
+Default locations to open the application<br/>
+The only hard coded default location is "Zulu" "O". <br/>
 Location, Difference from UTC<br/>
 * Hawaii, -10 <br/>
 * San Antonio, -6 <br/>
