@@ -10,8 +10,10 @@ Left-click and drag to move<br/>
 Right-click opens the menu<br/>
 - "Edit" To add or remove clock, up to 9
 - "Always on Top" to make it so the clock is on top of all windows to falls to the back
+- "Reposition Window" moves the clock to the top center again
 - "Close" closes the application
 <br/>
+Locations are now persistant with a "clocks.json" file used to "save" any changes. 
 Hard coded locations to open the application<br/>
 Location, Difference from UTC<br/>
 * Hawaii, -10 <br/>
